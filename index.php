@@ -1,6 +1,8 @@
 <?php
 session_start();
-$hash_password = '$2y$10$v4h7yUlMJuABhtlN5lgVs.zWzOHvBAsHSa3c3QXSEZxFZ9ZkJYkJ2'; // 'admin' encriptado
+
+// Contraseña encriptada correcta para 'admin'
+$hash_password = password_hash('admin', PASSWORD_BCRYPT); // Esto genera el hash de 'admin'
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
@@ -24,6 +26,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <title>Intranet Profesores - Instituto Profesional</title>
 </head>
 <body>
+    <!-- Logo de la institución -->
+    <img src="logo.png" alt="Logo de la Institución" style="width:200px;height:auto;">
+
     <h2>Intranet Profesores - Instituto Profesional</h2>
     <form method="POST">
         Usuario: <input type="text" name="username" required><br>
